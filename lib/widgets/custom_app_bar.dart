@@ -3,14 +3,16 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:notes_app/widgets/custom_search_icon.dart';
 
 class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({super.key});
+  const CustomAppBar({super.key, required this.hint, required this.icon});
+  final String hint;
+  final IconData icon;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         Text(
-          "Notes",
+          hint,
           style: GoogleFonts.poppins(
             textStyle: const TextStyle(
               fontSize: 28,
@@ -19,7 +21,7 @@ class CustomAppBar extends StatelessWidget {
           ),
         ),
         const Spacer(),
-        const CustomSearchIcon(),
+        CustomAppBarIcon(icon: icon),
       ],
     );
   }

@@ -17,13 +17,13 @@ class CustomTextField extends StatelessWidget {
           hintText: hint,
           enabledBorder: borderDecoration(),
           border: borderDecoration(),
-          focusedBorder: borderDecoration(color: KprimaryColor),
+          focusedBorder: borderDecoration(color: kPrimaryColor),
         ),
       ),
     );
   }
 
-  OutlineInputBorder borderDecoration({color}) {
+  OutlineInputBorder borderDecoration({dynamic color}) {
     return OutlineInputBorder(
       borderSide: BorderSide(color: color ?? Colors.white),
       borderRadius: BorderRadius.circular(16),

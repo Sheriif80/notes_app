@@ -11,7 +11,7 @@ class NotesView extends StatelessWidget {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         shape: const CircleBorder(),
-        backgroundColor: KprimaryColor,
+        backgroundColor: kPrimaryColor,
         onPressed: () {
           showModalBottomSheet(
             isScrollControlled: true,
