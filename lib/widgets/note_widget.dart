@@ -33,7 +33,7 @@ class NoteWidget extends StatelessWidget {
             ),
             trailing: IconButton(
               onPressed: () {},
-              icon: Icon(Icons.delete, color: Colors.black, size: 28),
+              icon: const Icon(Icons.delete, color: Colors.black, size: 28),
             ),
           ),
           Padding(

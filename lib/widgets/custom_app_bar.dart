@@ -12,11 +12,14 @@ class CustomAppBar extends StatelessWidget {
         Text(
           "Notes",
           style: GoogleFonts.poppins(
-            textStyle: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+            textStyle: const TextStyle(
+              fontSize: 28,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
-        Spacer(),
-        CustomSearchIcon(),
+        const Spacer(),
+        const CustomSearchIcon(),
       ],
     );
   }

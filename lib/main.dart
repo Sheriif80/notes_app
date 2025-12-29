@@ -13,7 +13,7 @@ class NotesApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'Roboto', brightness: Brightness.dark),
-      home: NotesView(),
+      home: const NotesView(),
     );
   }
 }

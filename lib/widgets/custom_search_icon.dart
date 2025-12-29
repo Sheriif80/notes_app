@@ -12,8 +12,8 @@ class CustomSearchIcon extends StatelessWidget {
         color: Colors.white12,
         borderRadius: BorderRadius.circular(12),
       ),
-      margin: EdgeInsets.only(left: 8),
-      child: Icon(Icons.search, size: 32, color: Colors.white),
+      margin: const EdgeInsets.only(left: 8),
+      child: const Icon(Icons.search, size: 32, color: Colors.white),
     );
   }
 }
