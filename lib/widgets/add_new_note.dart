@@ -14,7 +14,7 @@ class AddNewNote extends StatelessWidget {
         right: 16,
         top: 16,
       ),
-      child: SingleChildScrollView(
+      child: const SingleChildScrollView(
         child: Column(
           children: [
             CustomTextField(hint: 'Title'),
