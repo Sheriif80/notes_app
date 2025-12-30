@@ -1,5 +1,3 @@
-import 'package:hive/hive.dart';
-
 class NoteModel {
   final String title;
 

@@ -2,16 +2,30 @@ import 'package:flutter/material.dart';
 import 'package:notes_app/constants.dart';
 
 class CustomTextField extends StatelessWidget {
-  const CustomTextField({super.key, required this.hint, this.maxLines = 1});
+  const CustomTextField({
+    super.key,
+    required this.hint,
+    this.maxLines = 1,
+    this.onsaved,
+  });
 
   final String hint;
   final int maxLines;
+  final void Function(String?)? onsaved;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: 25, right: 20, left: 16),
-      child: TextField(
+      child: TextFormField(
+        onSaved: onsaved,
+        validator: (data) {
+          if (data?.isEmpty ?? true) {
+            return 'Please type something';
+          } else {
+            return null;
+          }
+        },
         maxLines: maxLines,
         decoration: InputDecoration(
           hintText: hint,
