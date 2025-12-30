@@ -1,10 +1,15 @@
+import 'package:hive/hive.dart';
+
 class NoteModel {
   final String title;
+
   final String content;
-  final DateTime createdAt;
+
+  final String createdAt;
+
   final int color;
 
-  NoteModel({
+  const NoteModel({
     required this.title,
     required this.content,
     required this.createdAt,
