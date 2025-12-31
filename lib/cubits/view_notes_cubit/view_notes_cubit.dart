@@ -10,15 +10,10 @@ class ViewNotesCubit extends Cubit<ViewNotesState> {
   ViewNotesCubit() : super(ViewNotesInitial());
 
   loadNotes() async {
-    emit(ViewNotesLoading());
-    try {
-      var notesBox = Hive.box<NoteModel>(kNotesBox);
+    var notesBox = Hive.box<NoteModel>(kNotesBox);
 
-      List<NoteModel> notes = notesBox.values.toList();
+    List<NoteModel> notes = notesBox.values.toList();
 
-      emit(ViewNotesSuccess(notes: notes));
-    } catch (e) {
-      emit(ViewNotesFailure(errorMsg: e.toString()));
-    }
+    emit(ViewNotesSuccess(notes: notes));
   }
 }
