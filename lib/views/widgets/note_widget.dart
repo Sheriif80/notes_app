@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
+import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/views/edit_note_view.dart';
 
 class NoteWidget extends StatelessWidget {
-  const NoteWidget({super.key});
+  const NoteWidget({super.key, required this.noteModel});
+
+  final NoteModel noteModel;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +25,7 @@ class NoteWidget extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.only(left: 16, top: 12, bottom: 12),
         decoration: BoxDecoration(
-          color: Colors.amber,
+          color: Color(noteModel.color),
           borderRadius: BorderRadius.circular(16),
         ),
         child: Column(
@@ -29,7 +33,7 @@ class NoteWidget extends StatelessWidget {
           children: [
             ListTile(
               title: Text(
-                'Flutter Tips',
+                noteModel.title,
                 style: GoogleFonts.roboto(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
@@ -39,7 +43,7 @@ class NoteWidget extends StatelessWidget {
               subtitle: Padding(
                 padding: const EdgeInsets.only(top: 8),
                 child: Text(
-                  'Build beautiful apps with Flutter',
+                  noteModel.content,
                   style: GoogleFonts.roboto(
                     fontSize: 16,
                     color: Colors.black54,
@@ -54,7 +58,9 @@ class NoteWidget extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(right: 16),
               child: Text(
-                'Dec 28, 2025',
+                DateFormat(
+                  'dd-MM-yyyy • h:mm a',
+                ).format(DateTime.parse(noteModel.createdAt)),
                 style: GoogleFonts.roboto(fontSize: 14, color: Colors.black87),
               ),
             ),
