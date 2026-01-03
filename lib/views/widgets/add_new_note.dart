@@ -13,9 +13,13 @@ class AddNewNote extends StatelessWidget {
       create: (context) => AddNoteCubit(),
       child: BlocConsumer<AddNoteCubit, AddNoteState>(
         listener: (context, state) {
+          /*
+         
           if (state is AddNoteFailure) {
             print(state.errorMsg);
           }
+
+          */
           if (state is AddNoteSuccess) {
             BlocProvider.of<ViewNotesCubit>(context).loadNotes();
             Navigator.pop(context);

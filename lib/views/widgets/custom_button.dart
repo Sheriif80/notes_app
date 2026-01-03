@@ -35,7 +35,10 @@ class CustomButton extends StatelessWidget {
                 )
               : Text(
                   hint,
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
         ),
       ),
