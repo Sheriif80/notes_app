@@ -3,9 +3,15 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:notes_app/views/widgets/custom_app_bar_icon.dart';
 
 class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({super.key, required this.hint, required this.icon});
+  const CustomAppBar({
+    super.key,
+    required this.hint,
+    required this.icon,
+    this.onTapForIcon,
+  });
   final String hint;
   final IconData icon;
+  final void Function()? onTapForIcon;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +27,7 @@ class CustomAppBar extends StatelessWidget {
           ),
         ),
         const Spacer(),
-        CustomAppBarIcon(icon: icon),
+        CustomAppBarIcon(onTapForIcon: onTapForIcon, icon: icon),
       ],
     );
   }

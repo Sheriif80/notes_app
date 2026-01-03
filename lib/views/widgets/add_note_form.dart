@@ -42,17 +42,9 @@ class _AddNoteFormState extends State<AddNoteForm> {
               return CustomButton(
                 isLoading: state is AddNoteLoading ? true : false,
                 onTap: () {
-                  if (_formkey.currentState!.validate()) {
-                    _formkey.currentState!.save();
-                    final NoteModel noteModel = NoteModel(
-                      title: title!,
-                      content: content!,
-                      createdAt: DateTime.now().toString(),
-                      color: Colors.lightBlue.value,
-                    );
-                    BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
-                  }
+                  addingNoteFunction(context);
                 },
+                hint: 'Add Note',
               );
             },
           ),
@@ -60,5 +52,18 @@ class _AddNoteFormState extends State<AddNoteForm> {
         ],
       ),
     );
+  }
+
+  void addingNoteFunction(BuildContext context) {
+    if (_formkey.currentState!.validate()) {
+      _formkey.currentState!.save();
+      final NoteModel noteModel = NoteModel(
+        title: title!,
+        content: content!,
+        createdAt: DateTime.now().toString(),
+        color: Colors.lightBlue.value,
+      );
+      BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
+    }
   }
 }

@@ -7,17 +7,20 @@ class CustomTextField extends StatelessWidget {
     required this.hint,
     this.maxLines = 1,
     this.onsaved,
+    this.onChanged,
   });
 
   final String hint;
   final int maxLines;
   final void Function(String?)? onsaved;
+  final void Function(String)? onChanged;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: 25, right: 20, left: 16),
       child: TextFormField(
+        onChanged: onChanged,
         onSaved: onsaved,
         validator: (data) {
           if (data?.isEmpty ?? true) {
